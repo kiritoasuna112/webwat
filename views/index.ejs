@@ -90,50 +90,37 @@
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <ul class="list-group">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              <% publics.map((item, index) => { %>
+              <li class="list-group-item"><a href="/news/<%= item.id %>"><%= item.title %></a></li>
+              <% }) %>
             </ul>
           </div>
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">หน้า2</div>
-          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">หน้า3</div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <ul class="list-group">
+              <% activities.map((activity, index) => { %>
+              <li class="list-group-item"><a href="/news/<%= activity.id %>"><%= activity.title %></a></li>
+              <% }) %>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            หน้า3
+          </div>
         </div>
         <div class="row mt-3">
+          <% features.map((feature, index) => { %>
           <div class="col-md-4">
             <div class="card">
-              <img class="card-img-top" src="//via.placeholder.com/480x500" alt="Card image cap">
+              <img class="card-img-top" src="<%= feature.thumbnail %>" alt="<%= feature.title %>" />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <p class="card-text">
+                    <%= feature.title %>
+                </p>
+                <a href="/news/<%= feature.id %>" class="btn btn-primary">อ่านข่าว</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top" src="//via.placeholder.com/480x500" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top" src="//via.placeholder.com/480x500" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+          <% }) %>
+
         </div>
       </div>
       <div class="col-3">
@@ -205,3 +192,5 @@
 </body>
 
 </html>
+
+
